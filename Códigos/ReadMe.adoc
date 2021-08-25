@@ -19,7 +19,7 @@ Foi desenvolvido um sistema para automatizar o processo de irrigação no terren
 
 Montar o circuito conforme o diagrama apresentado na pasta como 'Circuito.png'.
 
-== Upar o código ao
+== Upar o código
 
 Realizar as alterações desejadas e Upar o código ao Node.
 
