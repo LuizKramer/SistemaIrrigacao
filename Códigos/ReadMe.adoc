@@ -1,47 +1,29 @@
 :Author: luizkramer
 :Email:
 :Date: 02/07/2021
-:Revision: version#
+:Revision: version 1
 :License: Public Domain
 
 = Project: {Project}
 
-Describe your project
+Foi desenvolvido um sistema para automatizar o processo de irrigação no terreno.
 
-== Step 1: Installation
-Please describe the steps to install this project.
+== Instalação:
+1. Instalar a estrutura física, a qual consiste de canos, fitas de gotejo, bombas d'agua, caixas d'agua e afins;
+2. Definir quais são os pontos em que se deseja interromper o fluxo de água conforme a necessidade;
+3. Instalar Válvulas solenoides no "cano mestre" desses pontos;
+4. Instalar o cabeamento;
+5. Acoplar ao circuito. 
 
-For example:
+== Montagem do circuito
 
-1. Open this file
-2. Edit as you like
-3. Release to the World!
+Montar o circuito conforme o diagrama apresentado na pasta como 'Circuito.png'.
 
-== Step 2: Assemble the circuit
+== Upar o código ao
 
-Assemble the circuit following the diagram layout.png attached to the sketch
+Realizar as alterações desejadas e Upar o código ao Node.
 
-== Step 3: Load the code
-
-Upload the code contained in this sketch on to your board
-
-=== Folder structure
-
-....
- sketch123                => Arduino sketch folder
-  ├── sketch123.ino       => main Arduino file
-  ├── schematics.png      => (optional) an image of the required schematics
-  ├── layout.png          => (optional) an image of the layout
-  └── ReadMe.adoc         => this file
-....
-
-=== License
-This project is released under a {License} License.
-
-=== Contributing
-To contribute to this project please contact: 
-
-=== BOM
+=== Materiais
 Add the bill of the materials you need for this project.
 
 |===
@@ -52,7 +34,3 @@ Add the bill of the materials you need for this project.
 |===
 
 
-=== Help
-This document is written in the _AsciiDoc_ format, a markup language to describe documents. 
-If you need help you can search the http://www.methods.co.nz/asciidoc[AsciiDoc homepage]
-or consult the http://powerman.name/doc/asciidoc[AsciiDoc cheatsheet]
