@@ -1,12 +1,8 @@
 :Author: luizkramer
-:Email:
+:Email: luizeduardockramer@gmail.com
 :Date: 02/07/2021
-:Revision: version 1
+:Revision: version 7
 :License: Public Domain
-
-= Project: {Project}
-
-Foi desenvolvido um sistema para automatizar o processo de irrigação no terreno.
 
 == Instalação:
 1. Instalar a estrutura física, a qual consiste de canos, fitas de gotejo, bombas d'agua, caixas d'agua e afins;

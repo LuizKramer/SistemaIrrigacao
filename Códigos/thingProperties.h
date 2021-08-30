@@ -14,12 +14,10 @@ const char DEVICE_KEY[]  = SECRET_DEVICE_KEY;    // Secret device password
 void onBombaChange();
 void onIrrigChange();
 void onSensorChange();
-void onProgressoIrrigChange();
 
 bool bomba;
 bool irrig;
 float sensor;
-CloudPercentage progressoIrrig;
 
 void initProperties(){
 
@@ -29,7 +27,6 @@ void initProperties(){
   ArduinoCloud.addProperty(bomba, READWRITE, ON_CHANGE, onBombaChange);
   ArduinoCloud.addProperty(irrig, READWRITE, ON_CHANGE, onIrrigChange);
   ArduinoCloud.addProperty(sensor, READWRITE, 5 * SECONDS, onSensorChange);
-  ArduinoCloud.addProperty(progressoIrrig, READWRITE, 1 * SECONDS, onProgressoIrrigChange);
 
 }
 
