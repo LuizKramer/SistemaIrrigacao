@@ -20,13 +20,14 @@ Montar o circuito conforme o diagrama apresentado na pasta como 'Circuito.png'.
 Realizar as alterações desejadas e Upar o código ao Node.
 
 === Materiais
-Add the bill of the materials you need for this project.
 
 |===
-| ID | Part name      | Part number | Quantity
-| R1 | 10k Resistor   | 1234-abcd   | 10       
-| L1 | Red LED        | 2345-asdf   | 5        
-| A1 | Arduino Zero   | ABX00066    | 1        
+| ID | Componente        |  Quantidade
+| VS | Valvula Solenoide| 3      
+| BD | bomba d'agua     | 1        
+| MC | NodeMCU V1       | 1    
+| M1 | Módulo Relé 8Ch  | 1    
+| SU | Sensor de umidade e temperatura  | 1   
 |===
 
 
