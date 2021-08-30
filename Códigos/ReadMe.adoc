@@ -24,7 +24,7 @@ Realizar as alterações desejadas e Upar o código ao Node.
 |===
 | ID | Componente        |  Quantidade
 | VS | Valvula Solenoide| 3      
-| BD | bomba d'agua     | 1        
+| BD | Bomba d'agua     | 1        
 | MC | NodeMCU V1       | 1    
 | M1 | Módulo Relé 8Ch  | 1    
 | SU | Sensor de umidade e temperatura  | 1   
