@@ -1,3 +1,3 @@
-#define SECRET_SSID ""
-#define SECRET_PASS ""
-#define SECRET_DEVICE_KEY ""
+#define SECRET_SSID "KRAMER"
+#define SECRET_PASS "agronom0"
+#define SECRET_DEVICE_KEY "0MXGFGEXGS8VTTNSMIUW"

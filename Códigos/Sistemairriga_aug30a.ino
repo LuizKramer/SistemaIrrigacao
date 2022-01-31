@@ -8,9 +8,10 @@
 Valvula v1(0);
 Valvula v2(4);
 Valvula v3(5);
+Valvula v4(14);
 Valvula bomb(16);
 int horaInicial = 8;
-int minutoInicial = 30;
+int minutoInicial = 0;
 
 // Configuração dos parâmetros para utilizar a biblioteca "NTPCient.h"
 const long utcOffsetInSeconds = -10800;
@@ -36,9 +37,10 @@ void setup() {
   pinMode(v1.getId(), OUTPUT);
   pinMode(v2.getId(), OUTPUT);
   pinMode(v3.getId(), OUTPUT);
+  pinMode(v4.getId(), OUTPUT);
   pinMode(bomb.getId(), OUTPUT);
-  irrig = true;
-  bomba = true;
+  irrig = false;
+  bomba = false;
 }
 
 void loop() {
@@ -47,69 +49,85 @@ void loop() {
   ArduinoCloud.update();
   timeClient.update();
   delay(1000);
-  sensor = analogRead(A0);
   
   // Verificação do horário e execução do processo de irrigação
   if((timeClient.getHours() == horaInicial) && (timeClient.getMinutes() == minutoInicial)){
-    processoIrrig(15,20,45);
+    processoIrrig(20,30,45);
+  }
+  
+  if(bomba != true){
+    systemShutdown();
   }
   
 }
 
 void onBombaChange() {
   if(irrig==true && bomba == false){
-    v1.desligar();
-    v2.desligar();
-    v3.desligar();
+    systemShutdown();
     irrig = false;
   }
-  bomb.setStatus();
+  if(bomba == true){
+    bomb.ligar();
+  }
+  if(bomba == false){
+    bomb.desligar();
+  }
 }
 
 void onIrrigChange() {
-    bomba = irrig;
-    v1.setStatus();
-    v2.setStatus();
-    v3.setStatus();
-    bomb.setStatus();
-}
-
-void processoIrrig(int tV1, int tV2, int tV3){
-    int min;
+  if(irrig == false){
+    systemShutdown();
+    bomba = false;
+  }
+  if(irrig == true){
     v1.ligar();
     v2.ligar();
     v3.ligar();
+    v4.ligar();
     bomb.ligar();
     bomba = true;
-    while(bomba = true){
-      ArduinoCloud.update();
-      timeClient.update();
-     
-      if(timeClient.getMinutes() >= horaInicial){
-        min = timeClient.getMinutes() - horaInicial;
-      }
-      else{
-        min = timeClient.getMinutes() + horaInicial;
-      }
-      
-      if(min == tV1){
-        v1.desligar();
-      }
-      if(min == tV2){
-        v1.desligar();
-      }
-      if(min == tV3){
-        v1.desligar();
-      }
-      
-      if(v1.getStatus() && v2.getStatus() && v3.getStatus()){
-        bomb.desligar();
-        bomba = false;
-      }
-      
-    }
+  }
 }
 
-void onSensorChange() {
-  // Do something
+void processoIrrig(int tV1, int tV2, int tV3){
+      int min;
+      v1.ligar();
+      v2.ligar();
+      v3.ligar();
+      bomb.ligar();
+      bomba = true;
+      while(timeClient.getHours() == horaInicial){
+        ArduinoCloud.update();
+        timeClient.update();
+       
+        min = timeClient.getMinutes();
+        
+        if(min == tV1){
+          v3.desligar();
+          v4.ligar();
+        }
+        if(min == tV2){
+          v2.desligar();
+          v4.desligar();
+        }
+        if(min == tV3){
+          v1.desligar();
+        }
+        
+        if(v1.getStatus() && v2.getStatus() && v3.getStatus() && v4.getStatus()){
+          bomb.desligar();
+          bomba = false;
+          break;
+        }
+        
+      }
+      systemShutdown();
+}
+
+void systemShutdown(){
+    v1.desligar();
+    v2.desligar();
+    v3.desligar();
+    v4.desligar();
+    bomb.desligar();
 }
